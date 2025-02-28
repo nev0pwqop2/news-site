@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Site</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>News Site</h1>
+        <nav>
+            <% if (user) { %>
+                <p>Welcome, <%= user.username %>! <a href="/logout">Logout</a></p>
+                <% if (user.username === 'admin') { %>
+                    <a href="/create-user">Create User</a>
+                    <a href="/create-news">Create News</a>
+                <% } %>
+            <% } else { %>
+                <p><a href="/login">Login</a></p>
+            <% } %>
+        </nav>
+    </header>
+    <main>
+        <h2>News Articles</h2>
+        <% if (user) { %>
+            <% if (news.length > 0) { %>
+                <ul>
+                    <% news.forEach(article => { %>
+                        <li>
+                            <h3><%= article.title %></h3>
+                            <p><%= article.content %></p>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } else { %>
+                <p>No news available.</p>
+            <% } %>
+        <% } else { %>
+            <p>Please log in to view the news articles.</p>
+        <% } %>
+    </main>
+</body>
+</html>

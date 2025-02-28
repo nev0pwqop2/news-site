@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create News</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Create News</h1>
+    </header>
+    <div class="container">
+        <form action="/create-news" method="POST">
+            <label for="title">Title:</label>
+            <input type="text" name="title" required>
+            <label for="content">Content:</label>
+            <textarea name="content" required></textarea>
+            <button type="submit">Create News</button>
+        </form>
+
+        <h2>Delete News</h2>
+        <form action="/delete-news" method="POST">
+            <label for="title">Title:</label>
+            <input type="text" name="title" required>
+            <button type="submit">Delete News</button>
+        </form>
+    </div>
+</body>
+</html>
